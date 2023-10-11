@@ -15,7 +15,13 @@ import { useState } from "react";
    
    const addNewPage = (newPages) => {
      setPages([...pages , newPages]);
-    };
+    }
+
+
+    const deletePage = (index) => {
+      const updatedPages = pages.filter((_, i) => i !== index);
+      setPages(updatedPages);
+    }
 
   const dynamicRouteComponents = pages.map((route, index) => {
     if (route.design === "Comp1") {
@@ -33,7 +39,7 @@ import { useState } from "react";
       <NavBar pages= {pages} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="adminpanel" element={ <AdminPanel addNewPage={addNewPage} pages={pages} />} />
+        <Route path="adminpanel" element={ <AdminPanel addNewPage={addNewPage} deletePage={deletePage} pages={pages} />} />
         {dynamicRouteComponents}
       </Routes>
     </>

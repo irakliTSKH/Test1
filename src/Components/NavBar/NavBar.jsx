@@ -7,9 +7,11 @@ function NavBar({ pages }) {
     <NavLink key={index} to={route.name}>
       {route.name}
     </NavLink>
+    
   ));
   return (
     <NavDiv>
+
       <ul>
         <NavLink to="/">Home</NavLink>
         {dynamicNavLinks}
@@ -18,6 +20,7 @@ function NavBar({ pages }) {
       <NavLink to="adminpanel">
         <AdminButton>Admin</AdminButton>
       </NavLink>
+
     </NavDiv>
   );
 }

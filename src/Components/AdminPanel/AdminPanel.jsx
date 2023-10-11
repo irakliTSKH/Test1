@@ -1,31 +1,36 @@
 import { Container } from "./AdminPanel.Styled";
 import { useState } from "react";
 
-function AdminPanel({ addNewPage, pages }) {
+
+function AdminPanel({ addNewPage, pages, deletePage}) {
   const [name, setName] = useState("");
   const [design, setDesign] = useState(null);
 
   const createNewPage = (name, design) => {
-    const page = {
-      name,
-      design
+    if (name.trim() !== "" ) {
+      const page = {
+        name,
+        design,
+      };
+  
+      addNewPage(page);
+      setName("");
+      setDesign(null);
+    }
+  };
+  
+    
+    const pageArr = pages.map((page, index) => (
+      <div key={index}>
+        <h2>{page.name}</h2>
+        <button onClick={() => deletePage(index)}>Delete</button>
+      </div>
+  ));
+  
+    const changeDesign = (e) => {
+      setDesign(e.target.value);
     };
 
-    addNewPage(page);
-    setName("");
-    setDesign(null);
-  };
-
-  const handleRadioChange = (e) => {
-    setDesign(e.target.value);
-  };
-
-  const pageArr = pages.map((page, index) => 
-  <div key={index}>
-    <h2>{page.name}</h2>
-    <button onClick={console.log(index)}>delete</button>
-
-  </div>);
 
   return (
     <Container>
@@ -42,7 +47,7 @@ function AdminPanel({ addNewPage, pages }) {
         name="design"
         id="comp1"
         value="Comp1"
-        onChange={handleRadioChange}
+        onChange={changeDesign}
       />
       <label htmlFor="comp1">Design 1</label>
 
@@ -51,7 +56,7 @@ function AdminPanel({ addNewPage, pages }) {
         name="design"
         id="comp2"
         value="Comp2"
-        onChange={handleRadioChange}
+        onChange={changeDesign}
       />
       <label htmlFor="comp2">Design 2</label>
 
