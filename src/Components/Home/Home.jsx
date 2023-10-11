@@ -1,9 +1,10 @@
-import React from 'react'
+import { Container } from "./Home.styled"
+
 
 export default function Home() {
   return (
-    <div>
+    <Container>
         <h2>Hello Home</h2>
-    </div>
+    </Container>
   )
 }

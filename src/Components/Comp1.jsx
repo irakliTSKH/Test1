@@ -1,20 +1,10 @@
-import React from 'react'
 
-function Comp1() {
+function Comp1({text}) {
+
+
   return (
     <div>
-        <h2>Comp1</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus quidem praesentium nam 
-            beatae. Neque illum vel error veritatis maiores omnis blanditiis dolores quidem ullam 
-            iusto. Maiores laborum culpa sed dolore.</p>
-            <h2>Comp1</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus quidem praesentium nam 
-            beatae. Neque illum vel error veritatis maiores omnis blanditiis dolores quidem ullam 
-            iusto. Maiores laborum culpa sed dolore.</p>
-            <h2>Comp1</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus quidem praesentium nam 
-            beatae. Neque illum vel error veritatis maiores omnis blanditiis dolores quidem ullam 
-            iusto. Maiores laborum culpa sed dolore.</p>
+     {text}
     </div>
   )
 }

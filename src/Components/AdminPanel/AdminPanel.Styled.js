@@ -1,18 +1,59 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 100vh;
-    /* width: 100vw; */
-    background-color: grey;
-    display: flex;
-    flex-direction: column;
-    button {
-        background-color: cyan;
-        width: 200px;
-        height: 80px;
+  height: 70vh;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  button {
+    background-color: red;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 500ms ease;
+    &:hover {
+      scale: 1.1;
     }
-    input {
-        width: 200px;
-    }
-    
-`
+  }
+
+  input {
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    color: black;
+  }
+`;
+
+export const CreatePagesDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  border-right: 2px solid blue;
+  gap: 20px;
+`;
+
+export const PagesArray = styled(CreatePagesDiv)`
+  border: none;
+  overflow: hidden;
+`;
+
+export const Inputs = styled.div`
+  display: flex;
+`;
+
+export const ItemDIv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+`;

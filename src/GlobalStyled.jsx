@@ -6,5 +6,6 @@ export const GlobalStyled = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         overflow-x: hidden;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 `;
