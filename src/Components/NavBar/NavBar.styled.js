@@ -19,6 +19,7 @@ export const NavDiv = styled.div`
       margin-left: 30px;
       font-size: 20px;
       padding: 5px;
+      text-transform: uppercase;
     }
 
     a.active {

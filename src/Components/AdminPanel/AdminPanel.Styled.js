@@ -39,12 +39,13 @@ export const CreatePagesDiv = styled.div`
   flex: 1;
   height: 100%;
   border-right: 2px solid blue;
-  gap: 20px;
+  gap: 10px;
 `;
 
 export const PagesArray = styled(CreatePagesDiv)`
   border: none;
   overflow: hidden;
+  gap: 0;
 `;
 
 export const Inputs = styled.div`
