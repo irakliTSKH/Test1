@@ -37,7 +37,7 @@ function AdminPanel({ addNewPage, pages, deletePage, setPages }) {
     <ItemDIv key={index}>
       <span>
         {index + 1}
-        <h2>{page.name}</h2>
+        <h3>{page.name}</h3>
       </span>
       <button onClick={() => deletePage(index)}>Delete</button>
       <button onClick={() => addContext(index)}> Add context...</button>
@@ -91,7 +91,7 @@ function AdminPanel({ addNewPage, pages, deletePage, setPages }) {
       </CreatePagesDiv>
 
       <PagesArray>
-        <h2>Your Pages</h2>
+        <h3>Your Pages</h3>
         {pageArr}
       </PagesArray>
     </Container>

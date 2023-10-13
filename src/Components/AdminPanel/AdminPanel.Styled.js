@@ -12,8 +12,8 @@ export const Container = styled.div`
   button {
     background-color: red;
     color: white;
-    width: 100px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -56,5 +56,5 @@ export const ItemDIv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 `;
