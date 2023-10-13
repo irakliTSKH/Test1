@@ -1,4 +1,3 @@
-
 import {
   Container,
   CreatePagesDiv,
@@ -6,11 +5,14 @@ import {
   Inputs,
   ItemDIv,
 } from "./AdminPanel.Styled";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function AdminPanel({ addNewPage, pages, deletePage, setPages }) {
   const [name, setName] = useState("");
   const [design, setDesign] = useState(null);
+  const [context, setContext] = useState("");
+
+  const ref = useRef(null);
 
   const createNewPage = (name, design) => {
     if (name.trim() !== "") {
@@ -24,20 +26,27 @@ function AdminPanel({ addNewPage, pages, deletePage, setPages }) {
     }
   };
 
+  const addContext = (index) => {
+    const updatedPages = [...pages];
+    updatedPages[index].text = context;
+    setPages(updatedPages);
+    ref.current.value = '';
+  };
+
   const pageArr = pages.map((page, index) => (
     <ItemDIv key={index}>
       <span>
-        {index+1}
-      <h2>{page.name}</h2>
+        {index + 1}
+        <h2>{page.name}</h2>
       </span>
       <button onClick={() => deletePage(index)}>Delete</button>
-      <button> Add context...</button>
-      <textarea rows="3" cols="20"
-      onChange={(e) => {
-        const updatedPages = [...pages];
-        updatedPages[index].text = e.target.value;
-        setPages(updatedPages);
-      }}
+      <button onClick={() => addContext(index)}> Add context...</button>
+      <textarea
+      ref={ref}
+        type="text"
+        rows="3"
+        cols="20"
+        onChange={(e) => setContext(e.target.value)}
       />
     </ItemDIv>
   ));
@@ -81,7 +90,10 @@ function AdminPanel({ addNewPage, pages, deletePage, setPages }) {
         <button onClick={() => createNewPage(name, design)}>Add Page</button>
       </CreatePagesDiv>
 
-      <PagesArray>{pageArr}</PagesArray>
+      <PagesArray>
+        <h2>Your Pages</h2>
+        {pageArr}
+      </PagesArray>
     </Container>
   );
 }

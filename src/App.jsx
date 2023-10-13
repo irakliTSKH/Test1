@@ -2,7 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import AdminPanel from "./Components/AdminPanel/AdminPanel";
-import { Container,Footer } from "./App.styled";
+import { Container,Footer, ModeDiv } from "./App.styled";
 
 import Comp1 from "./Components/Comp1/Comp1";
 import Comp2 from "./Components/Comp2/Comp2";
@@ -12,7 +12,7 @@ import { useState } from "react";
 function App() {
   const [pages, setPages] = useState([]);
   const [text, setText] = useState("");
-  const [mode, setMode] = useState('false')
+  const [mode, setMode] = useState(false)
 
   const addNewPage = (newPages) => {
     if(pages.length < 5) {
@@ -47,10 +47,17 @@ function App() {
     }
   });
 
+
   return (
     <>
-      <Container>
+      <Container mode={mode}  >
         <NavBar pages={pages} />
+
+        <ModeDiv>
+          <input type="checkbox" id="mode" onChange={() => setMode(!mode)}/>
+          <label htmlFor='mode'></label>
+        </ModeDiv>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
