@@ -1,8 +1,7 @@
-
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import AdminPanel from "./Components/AdminPanel/AdminPanel";
-import { Container,Footer, ModeDiv } from "./App.styled";
+import { Container, Footer, ModeDiv } from "./App.styled";
 
 import Comp1 from "./Components/Comp1/Comp1";
 import Comp2 from "./Components/Comp2/Comp2";
@@ -12,12 +11,12 @@ import { useState } from "react";
 function App() {
   const [pages, setPages] = useState([]);
   const [text, setText] = useState("");
-  const [mode, setMode] = useState(false)
+  const [mode, setMode] = useState(localStorage.getItem('mode')==='true' );
 
   const addNewPage = (newPages) => {
-    if(pages.length < 5) {
+    if (pages.length < 5) {
       setPages([...pages, newPages]);
-    } else return
+    } else return;
   };
 
   const deletePage = (index) => {
@@ -47,15 +46,24 @@ function App() {
     }
   });
 
+  const changeMode = () => {
+    const newMode = !mode;
+  setMode(newMode);
+  localStorage.setItem("mode", newMode);
+  }
 
   return (
     <>
-      <Container mode={mode}  >
+      <Container mode={mode}>
         <NavBar pages={pages} />
 
         <ModeDiv>
-          <input type="checkbox" id="mode" onChange={() => setMode(!mode)}/>
-          <label htmlFor='mode'></label>
+          <input
+            type="checkbox"
+            id="mode"
+            onChange={changeMode}
+          />
+          <label htmlFor="mode"></label>
         </ModeDiv>
 
         <Routes>

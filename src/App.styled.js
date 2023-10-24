@@ -17,7 +17,6 @@ export const Footer = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* height: 50px; */
   text-align: center;
   a {
     text-decoration: none;
